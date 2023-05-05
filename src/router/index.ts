@@ -1,16 +1,21 @@
-import HomeViewVue from '@/views/HomeView.vue'
+import Home from '@/views/Home.vue'
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
-    component: HomeViewVue
+    component: Home
+  },
+  {
+    path: '/:cityName/current',
+    name: 'current',
+    component: () => import('@/views/CurrentWeather.vue')
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory('http://localhost:5173/'),
+  history: createWebHistory(),
   routes
 })
 
