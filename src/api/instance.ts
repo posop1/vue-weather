@@ -9,6 +9,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   config.params.appid = 'ffae1cfd3f9b0d3b0c574eacf2702d6a'
+  config.params.units = 'metric'
 
   return config
 })

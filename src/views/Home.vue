@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import SearchCityAlert from '@/components/Alerts/SearchCityAlert.vue'
-import { ref } from 'vue'
+import { getCityInLocalStorage, setCityInLocalStorage } from '@/service/city'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 const cityName = ref<string>('')
 const isError = ref<boolean>(false)
+
+const lastCity = getCityInLocalStorage()
 
 const getWeatherHandler = () => {
   const name = cityName.value.split(' ').join('')
@@ -17,11 +20,19 @@ const getWeatherHandler = () => {
     return
   }
 
-  router.push(`/${name}/currnet`)
+  setCityInLocalStorage(name)
+  router.push(`/weather/${name}/current`)
 
   cityName.value = ''
   isError.value = false
 }
+
+onMounted(() => {
+  if (lastCity) {
+    router.push(`weather/${lastCity}/current`)
+    return
+  }
+})
 </script>
 
 <template>
@@ -96,7 +107,7 @@ const getWeatherHandler = () => {
     cursor: pointer;
     font-size: 20px;
     width: 25%;
-    transition: 0.2s ease-in-out;
+    transition: 0.1s;
 
     &:hover {
       background: #ffffffc0;
