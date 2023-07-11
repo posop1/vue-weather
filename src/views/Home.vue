@@ -46,6 +46,7 @@ onMounted(() => {
       />
       <input
         v-model="cityName"
+        @keyup.enter="getWeatherHandler"
         class="search__inpt"
         type="text"
         placeholder="City Name"
@@ -68,6 +69,7 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   background: #41b883;
+  padding: 15px;
 }
 .box {
   max-width: 600px;
@@ -77,7 +79,6 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #34495e;
   color: rgba(255, 255, 255, 0.973);
 
   .logo {
@@ -108,6 +109,7 @@ onMounted(() => {
     font-size: 20px;
     width: 25%;
     transition: 0.1s;
+    width: 100%;
 
     &:hover {
       background: #ffffffc0;

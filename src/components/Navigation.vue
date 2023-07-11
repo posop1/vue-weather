@@ -38,10 +38,12 @@ const changeCityHandler = () => {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #41b883;
+  flex-wrap: wrap;
 }
 
 .links {
   display: flex;
+  align-items: center;
 }
 
 .link {

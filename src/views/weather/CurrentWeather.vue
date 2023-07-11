@@ -74,11 +74,12 @@ onMounted(() => {
 .main {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .box {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

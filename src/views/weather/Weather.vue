@@ -19,9 +19,11 @@ import Navigation from '@/components/Navigation.vue'
   justify-content: center;
   align-items: center;
   background: #41b883;
+  padding: 15px;
 }
 .box {
-  min-width: 800px;
+  max-width: 800px;
+  width: 100%;
   border-radius: 10px;
   background: white;
 }
